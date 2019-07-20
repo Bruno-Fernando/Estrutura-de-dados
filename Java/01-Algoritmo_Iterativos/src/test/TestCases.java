@@ -16,8 +16,16 @@ public class TestCases {
     private Integer[] vetorValoresRepetidos;
     private Integer[] vetorValoresIguais;
     private Integer[] vetorValoresNegativos;
+    private Integer[] vetorElementoUnico = {2};
+    private Integer[] vetorOrdenado = {1,5,8,17,28,55,86,99};
+    private Integer[] vetorOrdenadoReverso = {99,86,55,27,15,7,3,1};
+    private Integer[] vetorTudoRepetido = {8,8,8,8,5,5,5,5,1,1,1,1,1};
+    private Double[] vetorDeFloats = {1.1, 13.9, 2.29, 77.33, 9.0, 1.01, 28.6, 184.937, 0.001, 0.01};
+    private String[] vetorDeStrings = {"zrluagcwwhqnyx", "wmxnqzoj", "wujct", "zynlvlswhlsqu", "cujcy", "cwopxzkjrb", "hkqiipemi", "y", "hiradmnkfaqo", "", "wstz"};
 
     public AbstractSorting<Integer> implementation;
+    public AbstractSorting<Double> imp;
+    public AbstractSorting<String> impt;
 
     @Before
     public void setUp() {
@@ -38,6 +46,8 @@ public class TestCases {
     private void getImplementation() {
 
         this.implementation = new BubbleSort<Integer>();
+        this.imp = new BubbleSort<Double>();
+        this.impt = new BubbleSort<String>();
 
     }
 
@@ -76,6 +86,26 @@ public class TestCases {
         Arrays.sort(copy1);
 
         Assert.assertArrayEquals(copy1, array);
+
+    }
+
+    public void testedouble(Double[] array){
+        Double[] copia = array;
+
+        imp.sort(array);
+        Arrays.sort(array);
+
+        Assert.assertArrayEquals(copia, array);
+
+    }
+
+    public void testestring (String[] array){
+        String[] copia = array;
+
+        impt.sort(array);
+        Arrays.sort(array);
+
+        Assert.assertArrayEquals(copia, array);
 
     }
 
@@ -242,6 +272,36 @@ public class TestCases {
             leftIndex++;
             rightIndex--;
         }
+    }
+
+    @Test
+    public void testvetorElementoUnico(){
+        genericTest(vetorElementoUnico);
+    }
+
+    @Test
+    public void testvetorOrdenado(){
+        genericTest(vetorOrdenado);
+    }
+
+    @Test
+    public void testvetorOrdenadoReverso(){
+        genericTest(vetorOrdenadoReverso);
+    }
+
+    @Test
+    public void testvetorTudoRepetido(){
+        genericTest(vetorTudoRepetido);
+    }
+
+    @Test
+    public void testvetorDeFloats(){
+        testedouble(vetorDeFloats);
+    }
+
+    @Test
+    public void testvetorDeStrings(){
+        testestring(vetorDeStrings);
     }
 
 }
