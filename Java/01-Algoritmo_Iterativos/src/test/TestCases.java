@@ -6,6 +6,7 @@ import org.junit.Test;
 import sorting.AbstractSorting;
 import sorting.SimpleSorting.BubbleSort;
 import sorting.SimpleSorting.InsertionSort;
+import sorting.SimpleSorting.SelectionSort;
 
 
 import java.util.Arrays;
@@ -51,9 +52,13 @@ public class TestCases {
         //this.imp = new BubbleSort<>();
         //this.impt = new BubbleSort<>();
 
-        this.implementation = new InsertionSort<>();
-        this.imp = new InsertionSort<>();
-        this.impt = new InsertionSort<>();
+        //this.implementation = new InsertionSort<>();
+        //this.imp = new InsertionSort<>();
+        //this.impt = new InsertionSort<>();
+
+        this.implementation = new SelectionSort<>();
+        this.imp = new SelectionSort<>();
+        this.impt = new SelectionSort<>();
     }
 
     private void populaVetorTamanhoPar(Integer[] arrayPadrao) {
