@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import sorting.AbstractSorting;
 import sorting.SimpleSorting.BubbleSort;
+import sorting.SimpleSorting.InsertionSort;
+
 
 import java.util.Arrays;
 
@@ -23,9 +25,9 @@ public class TestCases {
     private Double[] vetorDeFloats = {1.1, 13.9, 2.29, 77.33, 9.0, 1.01, 28.6, 184.937, 0.001, 0.01};
     private String[] vetorDeStrings = {"zrluagcwwhqnyx", "wmxnqzoj", "wujct", "zynlvlswhlsqu", "cujcy", "cwopxzkjrb", "hkqiipemi", "y", "hiradmnkfaqo", "", "wstz"};
 
-    public AbstractSorting<Integer> implementation;
-    public AbstractSorting<Double> imp;
-    public AbstractSorting<String> impt;
+    private AbstractSorting<Integer> implementation;
+    private AbstractSorting<Double> imp;
+    private AbstractSorting<String> impt;
 
     @Before
     public void setUp() {
@@ -45,25 +47,28 @@ public class TestCases {
      */
     private void getImplementation() {
 
-        this.implementation = new BubbleSort<Integer>();
-        this.imp = new BubbleSort<Double>();
-        this.impt = new BubbleSort<String>();
+        //this.implementation = new BubbleSort<>();
+        //this.imp = new BubbleSort<>();
+        //this.impt = new BubbleSort<>();
 
+        this.implementation = new InsertionSort<>();
+        this.imp = new InsertionSort<>();
+        this.impt = new InsertionSort<>();
     }
 
-    public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
+    private void populaVetorTamanhoPar(Integer[] arrayPadrao) {
         this.vetorTamPar = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
     }
 
-    public void populaVetorTamanhoImpar(Integer[] arrayPadrao) {
+    private void populaVetorTamanhoImpar(Integer[] arrayPadrao) {
         this.vetorTamImpar = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
     }
 
-    public void populaVetorRepetido(Integer[] arrayPadrao) {
+    private void populaVetorRepetido(Integer[] arrayPadrao) {
         this.vetorValoresRepetidos = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
     }
 
-    public void populaVetorIgual(Integer[] arrayPadrao) {
+    private void populaVetorIgual(Integer[] arrayPadrao) {
         this.vetorValoresIguais = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
     }
 
@@ -76,7 +81,7 @@ public class TestCases {
 
     // MÉTODOS DE TESTE
 
-    public void genericTest(Integer[] array) {
+    private void genericTest(Integer[] array) {
         Integer[] copy1 = {};
         if (array.length > 0) {
             copy1 = Arrays.copyOf(array, array.length);
@@ -89,27 +94,27 @@ public class TestCases {
 
     }
 
-    public void testedouble(Double[] array){
-        Double[] copia = array;
+    private void testedouble(Double[] array){
+        Double[] copia =  Arrays.copyOf(array, array.length);
 
         imp.sort(array);
-        Arrays.sort(array);
+        Arrays.sort(copia);
 
         Assert.assertArrayEquals(copia, array);
 
     }
 
-    public void testestring (String[] array){
-        String[] copia = array;
+    private void testestring (String[] array){
+        String[] copia =  Arrays.copyOf(array, array.length);
 
         impt.sort(array);
-        Arrays.sort(array);
+        Arrays.sort(copia);
 
         Assert.assertArrayEquals(copia, array);
 
     }
 
-    public void delimitedTest(Integer[] array, int leftIndex, int rightIndex) {
+    private void delimitedTest(Integer[] array, int leftIndex, int rightIndex) {
 
         Integer[] copy1 = {};
         if (array.length > 0) {
@@ -157,7 +162,7 @@ public class TestCases {
         int leftIndex = 0;
         int rightIndex = vetorTamPar.length - 1;
 
-        Integer[] copy1 = {};
+        Integer[] copy1;
 
         while (leftIndex <= rightIndex) {
 
@@ -175,7 +180,7 @@ public class TestCases {
         int leftIndex = 0;
         int rightIndex = vetorTamImpar.length - 1;
 
-        Integer[] copy1 = {};
+        Integer[] copy1;
 
         while (leftIndex <= rightIndex) {
 
@@ -192,7 +197,7 @@ public class TestCases {
         int leftIndex = 0;
         int rightIndex = vetorVazio.length - 1;
 
-        Integer[] copy1 = {};
+        Integer[] copy1;
 
         while (leftIndex <= rightIndex) {
 
@@ -209,7 +214,7 @@ public class TestCases {
         int leftIndex = 0;
         int rightIndex = vetorValoresIguais.length - 1;
 
-        Integer[] copy1 = {};
+        Integer[] copy1;
 
         while (leftIndex <= rightIndex) {
 
@@ -226,7 +231,7 @@ public class TestCases {
         int leftIndex = 0;
         int rightIndex = vetorValoresRepetidos.length - 1;
 
-        Integer[] copy1 = {};
+        Integer[] copy1;
 
         while (leftIndex <= rightIndex) {
 
@@ -262,7 +267,7 @@ public class TestCases {
         int leftIndex = 0;
         int rightIndex = vetorValoresNegativos.length - 1;
 
-        Integer[] copy1 = {};
+        Integer[] copy1;
 
         while (leftIndex <= rightIndex) {
 
