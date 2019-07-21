@@ -14,6 +14,24 @@ import util.Util;
  */
 public class SimultaneousSelectionsort<T extends Comparable<T>> extends AbstractSorting<T> {
 
-    public void sort(T[] array, int leftIndex, int rightIndex) {}
+    public void sort(T[] array, int leftIndex, int rightIndex) {
+        for (int i = leftIndex; i < rightIndex; i++) {
+            int min = i + 1;
+            int max = i + 1;
+
+            for (int j = i + 1; j < rightIndex + 1; j++) {
+                if(array[j].compareTo(array[min]) < 0)
+                    min = j;
+                if(array[j].compareTo(array[max]) > 0)
+                    max = j;
+            }
+
+            if(array[i].compareTo(array[min]) > 0)
+                Util.swap(array, i, min);
+
+            if(array[rightIndex].compareTo(array[max]) < 0)
+                Util.swap(array, rightIndex, max);
+        }
+    }
 
 }

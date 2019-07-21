@@ -7,6 +7,7 @@ import sorting.AbstractSorting;
 import sorting.SimpleSorting.BubbleSort;
 import sorting.SimpleSorting.InsertionSort;
 import sorting.SimpleSorting.SelectionSort;
+import sorting.VariationsOfSelectionsort.SimultaneousSelectionsort;
 
 
 import java.util.Arrays;
@@ -48,17 +49,29 @@ public class TestCases {
      */
     private void getImplementation() {
 
-        //this.implementation = new BubbleSort<>();
-        //this.imp = new BubbleSort<>();
-        //this.impt = new BubbleSort<>();
+        /*
+        this.implementation = new BubbleSort<>();
+        this.imp = new BubbleSort<>();
+        this.impt = new BubbleSort<>();
+        */
 
-        //this.implementation = new InsertionSort<>();
-        //this.imp = new InsertionSort<>();
-        //this.impt = new InsertionSort<>();
+        /*
+        this.implementation = new InsertionSort<>();
+        this.imp = new InsertionSort<>();
+        this.impt = new InsertionSort<>();
+        */
 
+        /*
         this.implementation = new SelectionSort<>();
         this.imp = new SelectionSort<>();
         this.impt = new SelectionSort<>();
+        */
+
+
+        this.implementation = new SimultaneousSelectionsort<>();
+        this.imp = new SimultaneousSelectionsort<>();
+        this.impt = new SimultaneousSelectionsort<>();
+
     }
 
     private void populaVetorTamanhoPar(Integer[] arrayPadrao) {
